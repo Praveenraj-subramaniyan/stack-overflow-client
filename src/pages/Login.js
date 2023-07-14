@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import logo from "../images/icon.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./CSS/Login.css";
 function Login() {
   const [loginData, setloginData] = useState({
@@ -77,7 +77,7 @@ function Login() {
           </form>
           <p className="signupLink">
           Don’t have an account?
-          <Link className="text-decoration-none" to={`/signin`}>Sign up</Link>
+          <Link className="text-decoration-none" to={`/signin`}> Sign up</Link>
         </p>
         </div>
         {isLoading && (

@@ -1,6 +1,7 @@
 import React from "react";
 import "./CSS/Header.css";
 import logo from "../images/logo.png";
+import searchIcon from "../images/search-solid.svg";
 import { Link } from "react-router-dom";
 import Avatar from "./Avatar";
 
@@ -11,30 +12,33 @@ function Header() {
       <div className="container-fluid">
         <ul className="navbar-nav">
           <li className="nav-item">
-            <Link to="/" className="nav-item nav-btn  navbar-brand ms-5">
+            <Link to="/" className="nav-item nav-btn  navbar-brand ms-5 headerLogo">
               <img src={logo} alt="logo" />
             </Link>
           </li>
-          <li className="nav-item">
+           <li className="nav-item headernavLink">
             <a className="nav-link me-3" href="#">
               About
             </a>
           </li>
-          <li className="nav-item">
+         <li className="nav-item headernavLink">
             <a className="nav-link me-3" href="#">
               Products
             </a>
           </li>
-          <li className="nav-item">
+          <li className="nav-item searchIconHeader">
+          <img src={searchIcon} alt="logo" className="" />
+          </li>
+          <li className="nav-item searchBarHeader">
             <input
               className="form-control me-2"
               type="text"
               placeholder="Search"
             />
-          </li>
+          </li> 
         </ul>
         {User === null ? (
-          <form className="d-flex me-3">
+          <form className="d-flex me-3 headerFormButton">
              <Link to="/login" >
             <button className="btn ms-3  loginbtn">Log in</button>
             </Link>
@@ -45,7 +49,7 @@ function Header() {
             </Link>
           </form>
         ) : (
-          <form className="d-flex me-5">
+          <form className="d-flex me-5 headerFormButton">
             <Link
               to={`/Users/${User?.result?._id}`}
               className="text-decoration-none"

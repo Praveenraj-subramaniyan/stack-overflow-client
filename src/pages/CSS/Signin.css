@@ -7,6 +7,11 @@
 }
 .paraSignin{
     font-weight: 350;
+    margin-top: 13%;
+    padding-left: 18%;
+}
+.paraSignin svg{
+    fill: rgba(0, 132, 255, 0.904);
 }
 .SigninBoxDiv{
     width: 35%;
@@ -33,10 +38,10 @@
     width: 100%;
     margin-top: 5%;
     margin-left: 17%;
-    padding-bottom: 0%;
+    padding-bottom: 23%;
 }
 .signinLogo{
-    margin: 46%;
+    margin: 60%;
     margin-top: 2%;
     margin-bottom: 0%;
 }

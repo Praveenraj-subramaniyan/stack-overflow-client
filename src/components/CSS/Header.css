@@ -1,24 +1,86 @@
-.headerbar{
-    background-color: white !important;
-    border-bottom: 0.5px solid gainsboro;
-    border-top: 3px solid #fc8019;
+.headerbar {
+  background-color: white !important;
+  border-bottom: 0.5px solid gainsboro;
+  border-top: 3px solid #fc8019;
 }
-.form-control{
-    width: 350% !important;
+.searchIconHeader{
+    display: none;
 }
-.loginbtn{
-    background-color: #e7f8fe;
-    color: blue;
+.form-control {
+  width: 330% !important;
 }
-@media (min-width: 600px) and (max-width: 830px){
-    .form-control{
-        width: 100% !important;
-    }
-    .loginbtn{
-        margin: 0% !important;
-        margin-right: 10px !important;
-    }
-    .signinbtn{
-        margin: 0% !important;
-    }
+.loginbtn {
+  background-color: #e7f8fe;
+  color: blue;
+}
+@media (min-width: 600px) and (max-width: 830px) {
+  .form-control {
+    width: 90% !important;
+  }
+  .loginbtn {
+    margin: 0% !important;
+    margin-right: 10px !important;
+    font-size: small;
+  }
+  .signinbtn {
+    margin: 0% !important;
+    font-size: small;
+  }
+}
+@media (max-width: 600px) {
+  .headerbar {
+    height: 60px;
+    padding: 0px;
+    font-size: 11px;
+  }
+  .headerbar ul {
+    width: 243px;
+    flex-direction: row;
+  }
+  .headerbar li a{
+    /* width: 8px !important; */
+    margin-left: 0px !important;
+    margin-left: 0px !important;
+  }
+  .headerbar li {
+    width: 80px !important;
+    margin-left: 15px !important;
+  }
+  .headerbar .container-fluid {
+    padding: 0px;
+  }
+  .headerbar img {
+    height: 15px;
+    padding-top: 0px !important;
+    padding-bottom: 1px !important;
+  }
+  .headerbar input {
+    display: none;
+  }
+  .headerFormButton {
+    margin-right: 2px !important;
+  }
+  .headerFormButton button {
+    margin-left: 5px !important;
+    font-size: smaller;
+  }
+  .headerLogo {
+    margin: 0% !important;
+    margin-left: 10px !important;
+  }
+  .signinbtn {
+    margin-right: 0% !important;
+  }
+  .headernavLink a{
+    width: 8px !important;
+    margin-left: 1px !important;
+    margin-right: 0px !important;
+  }
+  .searchIconHeader{
+    display: flex;
+    margin-top: 10px;
+  }
+  .searchBarHeader{
+    display: none;
+  }
 }

@@ -10,8 +10,9 @@ function App() {
     <div>
     <BrowserRouter >
     <Header/>
-    <Routing/>
     </BrowserRouter>
+    <Routing/>
+  
   </div>
   );
 }
