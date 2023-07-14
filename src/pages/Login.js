@@ -76,9 +76,12 @@ function Login() {
             </div>
           </form>
           <p className="signupLink">
-          Don’t have an account?
-          <Link className="text-decoration-none" to={`/signin`}> Sign up</Link>
-        </p>
+            Don’t have an account?
+            <Link className="text-decoration-none" to={`/signin`}>
+              {" "}
+              Sign up
+            </Link>
+          </p>
         </div>
         {isLoading && (
           <div className="isLoadingLogin">

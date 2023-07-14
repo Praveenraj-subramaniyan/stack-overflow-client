@@ -1,0 +1,22 @@
+.RightSideBarDiv{
+    float: right;
+    width: 300px;
+    margin: 0px 0px 15px 24px;
+    font-size: 14px !important;
+}
+.BlogsDiv h4{
+    background-color: #fbf3d5;
+    margin: 0%;
+    padding: 15px;
+    border: solid 1px #f1e5bc;
+    font-size: 13px;
+}
+.BlogsDiv p{
+    background-color: #fdf7e2;
+    padding: 15px;
+    border: solid 1px #f1e5bc;
+    margin: 0px;
+}
+.BlogsDiv img{
+    width: 11px;
+}

@@ -12,33 +12,36 @@ function Header() {
       <div className="container-fluid">
         <ul className="navbar-nav">
           <li className="nav-item" id="headerLogoli">
-          <button
-            className="navbar-toggler lefSideBarTogglerBtn"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#leftsideHomeNavBar"
-            aria-controls="leftsideHomeNavBar"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-            <Link to="/" className="nav-item nav-btn  navbar-brand ms-5 headerLogo">
+            <button
+              className="navbar-toggler lefSideBarTogglerBtn"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#leftsideHomeNavBar"
+              aria-controls="leftsideHomeNavBar"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <Link
+              to="/"
+              className="nav-item nav-btn  navbar-brand ms-5 headerLogo"
+            >
               <img src={logo} alt="logo" />
             </Link>
           </li>
-           <li className="nav-item headernavLink">
+          <li className="nav-item headernavLink">
             <a className="nav-link me-3" href="#">
               About
             </a>
           </li>
-         <li className="nav-item headernavLink">
+          <li className="nav-item headernavLink">
             <a className="nav-link me-3" href="#">
               Products
             </a>
           </li>
           <li className="nav-item searchIconHeader">
-          <img src={searchIcon} alt="logo" className="" />
+            <img src={searchIcon} alt="logo" className="" />
           </li>
           <li className="nav-item searchBarHeader">
             <input
@@ -46,17 +49,17 @@ function Header() {
               type="text"
               placeholder="Search"
             />
-          </li> 
+          </li>
         </ul>
         {User === null ? (
           <form className="d-flex me-3 headerFormButton">
-             <Link to="/login" >
-            <button className="btn ms-3  loginbtn">Log in</button>
+            <Link to="/login">
+              <button className="btn ms-3  loginbtn">Log in</button>
             </Link>
-            <Link to="/signin" >
-            <button className="btn btn-primary ms-2 me-3 signinbtn">
-              Sign in
-            </button>
+            <Link to="/signin">
+              <button className="btn btn-primary ms-2 me-3 signinbtn">
+                Sign in
+              </button>
             </Link>
           </form>
         ) : (

@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function HomeMainBar() {
-  return (
-    <div>
-      
-    </div>
-  )
+  return <div>Hi</div>;
 }
 
-export default HomeMainBar
+export default HomeMainBar;
