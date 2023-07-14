@@ -67,6 +67,8 @@
   .headerLogo {
     margin: 0% !important;
     margin-left: 10px !important;
+    padding-top: 0px;
+    padding-bottom: 0px;
   }
   .signinbtn {
     margin-right: 0% !important;
@@ -82,5 +84,28 @@
   }
   .searchBarHeader{
     display: none;
+  }
+  .lefSideBarTogglerBtn{
+    width: 10px !important;
+  }
+  #headerLogoli{
+    width: 150px !important;
+    margin-left: 0px !important;
+    display: flex;
+  }
+  #headerLogoli button{
+    width: 17px !important;
+    padding: 0%;
+    height: 18px;
+    margin-top: 8%;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  #headerLogoli span{
+    width: 10px !important;
+    padding: 0%;
+    height: 15px;
+    margin-top: 0% !important;
+    margin-bottom: 60% !important
   }
 }
