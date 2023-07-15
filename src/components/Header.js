@@ -11,25 +11,16 @@ function Header() {
     <nav className="navbar navbar-expand-sm bg-light headerbar fixed-top py-1">
       <div className="container-fluid">
         <ul className="navbar-nav">
-          <li className="nav-item" id="headerLogoli">
-            <button
-              className="navbar-toggler lefSideBarTogglerBtn"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#leftsideHomeNavBar"
-              aria-controls="leftsideHomeNavBar"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <Link
+        <Link
               to="/"
               className="nav-item nav-btn  navbar-brand ms-5 headerLogo"
             >
+          <li className="nav-item">
+            
               <img src={logo} alt="logo" />
-            </Link>
+           
           </li>
+          </Link>
           <li className="nav-item headernavLink">
             <a className="nav-link me-3" href="#">
               About

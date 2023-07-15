@@ -5,8 +5,25 @@ import pen from "../images/pen-solid.svg";
 import blackLogo from "../images/blacklogo.svg";
 
 function RightSideBar() {
+  const tags = [
+    "c",
+    "css",
+    "express",
+    "firebase",
+    "html",
+    "java",
+    "javascript",
+    "mern",
+    "mongodb",
+    "mysql",
+    "next.js",
+    "node.js",
+    "php",
+    "python",
+    "reactjs",
+  ];
   return (
-    <div className="RightSideBarDiv text-secondary">
+    <div className="RightSideBarDiv text-secondary mt-5">
       <div className="Blogs">
         <div className="BlogsDiv">
           <div className="BlogsDiv1">
@@ -23,8 +40,8 @@ function RightSideBar() {
           <div className="BlogsDiv1">
             <h4 className="">Featured on Meta</h4>
             <p>
-              <img src={comment} alt="pen" width="18" /> Starting the Prompt Design
-              Site: A New Home in our Stack Exchange Neighborhood
+              <img src={comment} alt="pen" width="18" /> Starting the Prompt
+              Design Site: A New Home in our Stack Exchange Neighborhood
             </p>
             <p>
               <img src={comment} alt="pen" width="18" /> Colors update: A more
@@ -42,16 +59,21 @@ function RightSideBar() {
           <div className="BlogsDiv1">
             <h4 className="">Hot Meta Posts</h4>
             <p>
-               35 I don't understand why a flag concerning "spam" was declined
+              35 I don't understand why a flag concerning "spam" was declined
             </p>
-            <p>
-              51 Is a link to the "How to ask" help page a useful comment?
-            </p>
+            <p>51 Is a link to the "How to ask" help page a useful comment?</p>
           </div>
           <div className="WatcheTagsHome"></div>
         </div>
       </div>
-      <div className="WatchedTags"></div>
+      <div className="WatchedTags">
+        <h4>Watched tags</h4>
+        <div className="widgettagsdiv">
+          {tags.map((tag) => (
+            <p key={tag}>{tag}</p>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

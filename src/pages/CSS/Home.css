@@ -1,3 +1,9 @@
 .mainrightbarHome{
     width: 82% !important;
+    padding-left: 0% !important;
+    border-left:1px solid gainsboro ;
+}
+.leftsidebarHome{
+    padding: 0%;
+    width: 14%;
 }

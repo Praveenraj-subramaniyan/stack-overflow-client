@@ -1,0 +1,14 @@
+.QuestionDiv{
+    border-top: 1px solid gainsboro !important;
+    border-bottom: 1px solid gainsboro !important;
+}
+
+.displaytags{
+    display: flex;
+    flex-wrap: wrap;
+}
+.displaytagsQuetions{
+    color: hsl(205,36%,53%);
+    background-color:hsl(205,53%,88%) ;
+    border-radius: 5px;
+}

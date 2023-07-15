@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Globe from "../images/Globe.svg";
 import "./CSS/LeftSideBar.css";
 
-function LeftSideBar() {
-  const [buttonClick, setbuttonClick] = useState("Home");
+function LeftSideBar(data) {
+  const [buttonClick, setbuttonClick] = useState(data.page);
 
   return (
-    <div className="leftsideNavBar ms-2">
+    <div className="leftsideNavBar ms-4">
       <nav className="navbar navbar-expand-sm bg-white">
         <div className="container-fluid">
           <div className="collapse navbar-collapse" id="leftsideHomeNavBar">
@@ -18,15 +18,15 @@ function LeftSideBar() {
                 } nav-item small py-1 mt-1`}
                 onClick={() => setbuttonClick("Home")}
               >
-                <NavLink
+                <Link
                   to="/"
                   className={` text-decoration-none text-dark px-2`}
                 >
                   Home
-                </NavLink>
+                </Link>
               </li>
               <li className="nav-item small mt-2 ">
-                <NavLink className="nav-link text-secondary">Public</NavLink>
+                <Link className="nav-link text-secondary">Public</Link>
               </li>
               <li
                 className={`${
@@ -34,14 +34,14 @@ function LeftSideBar() {
                 } nav-item small ms-3 mt-2 `}
                 onClick={() => setbuttonClick("Questions")}
               >
-                <NavLink className="nav-link" to="/questions">
+                <Link className="nav-link" to="/questions">
                   <img
                     src={Globe}
                     alt="Globe"
                     className="mb-1 text-secondary"
                   />
                   <span className="text-secondary">Questions</span>
-                </NavLink>
+                </Link>
               </li>
               <li
                 className={`${
@@ -49,9 +49,9 @@ function LeftSideBar() {
                 } nav-item small ms-3 mt-2`}
                 onClick={() => setbuttonClick("Tags")}
               >
-                <NavLink to="/tags" className="nav-link text-secondary">
+                <Link to="/tags" className="nav-link text-secondary">
                   Tags
-                </NavLink>
+                </Link>
               </li>
               <li
                 className={`${
@@ -59,9 +59,9 @@ function LeftSideBar() {
                 } nav-item small ms-3 mt-2`}
                 onClick={() => setbuttonClick("Users")}
               >
-                <NavLink to="/users" className="nav-link text-secondary">
+                <Link to="/users" className="nav-link text-secondary">
                   Users
-                </NavLink>
+                </Link>
               </li>
             </ul>
           </div>

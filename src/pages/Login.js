@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import logo from "../images/icon.png";
 import { Link } from "react-router-dom";
 import "./CSS/Login.css";
+
 function Login() {
   const [loginData, setloginData] = useState({
     emailIdLogin: "",
