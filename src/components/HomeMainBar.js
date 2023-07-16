@@ -73,7 +73,7 @@ function HomeMainBar() {
     <div className="HomeMainBarDiv mt-4 ">
       <div className="row ms-3">
         <h1 className="col-10">{location.pathname === '/' ? "Top Questions" : "All Questions"}</h1>
-        <Link to="/askquestion" className="btn btn-primary mt-3 mb-1 col-2 py-1" >Ask Questions</Link>
+        <Link to="/question/ask" className="btn btn-primary mt-3 mb-1 col-2 py-1" >Ask Questions</Link>
       </div>
       <div className="mt-4">
         {questionsList === null ? (

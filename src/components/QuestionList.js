@@ -20,7 +20,7 @@ function QuestionList({ questionsList }) {
             </div>
             <div className="col-7 ms-2">
               <Link
-                to={`/Questions/${question._id}`}
+                to={`/question/details/${question._id}`}
                 className="text-decoration-none "
               >
                 {question.questionTitle}
