@@ -2,71 +2,10 @@ import React, { useState } from "react";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import "./CSS/HomeMainBar.css";
 import QuestionList from "../components/QuestionList"
+import { useDispatch, useSelector } from "react-redux";
 
 function HomeMainBar() {
-  const questionsList= [
-    {
-      _id: 1,
-      upVotes: 3,
-      downVotes: 2,
-      noOfAnswers: 2,
-      questionTitle: "What is a function?",
-      questionBody: "It meant to be",
-      questionTags: ["java", "node js", "react js"],
-      userPosted: "mano",
-      userId: 1,
-      askedOn: "2023-01-01",
-      answer: [
-        {
-          answerBody: "Answer",
-          userAnswered: "kumar",
-          answeredOn: "2023-01-01",
-          userId: 2,
-        },
-      ],
-    },
-    {
-      _id: 2,
-      upVotes: 3,
-      downVotes: 2,
-      noOfAnswers: 0,
-      questionTitle: "What is a function?",
-      questionBody: "It meant to be",
-      questionTags: ["javascript", "R", "python"],
-      userPosted: "mano",
-      askedOn: "2023-01-01",
-      userId: 1,
-      answer: [
-        {
-          answerBody: "Answer",
-          userAnswered: "kumar",
-          answeredOn: "2023-01-01",
-          userId: 2,
-        },
-      ],
-    },
-    {
-      _id: 3,
-      upVotes: 3,
-      downVotes: 2,
-      noOfAnswers: 0,
-      questionTitle: "What is a function?",
-      questionBody: "It meant to be",
-      questionTags: ["javascript", "R", "python"],
-      userPosted: "mano",
-      askedOn: "2023-01-01",
-      userId: 1,
-      answer: [
-        {
-          answerBody: "Answer",
-          userAnswered: "kumar",
-          answeredOn: "2023-01-01",
-          userId: 2,
-        },
-      ],
-    },
-  ];
-
+  const questionsList = useSelector((state) => state.questionsReducer.data);
   const location =useLocation();
 
   return (

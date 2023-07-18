@@ -9,7 +9,7 @@ function Home() {
       <div className="leftsidebarHome col-2">
         <LeftSideBar page="Home" />
       </div>
-      <div className="mainrightbarHome col-8">
+      <div className="mainrightbarHome col-12">
         <RightSideBar />
         <HomeMainBar />
       </div>

@@ -18,7 +18,7 @@ function QuestionList({ questionsList }) {
               <p className="text-center">{question.noOfAnswers}</p>
               <p>answers</p>
             </div>
-            <div className="col-7 ms-2">
+            <div className="col-7 ms-2 pe-0">
               <Link
                 to={`/question/details/${question._id}`}
                 className="text-decoration-none "
@@ -33,8 +33,8 @@ function QuestionList({ questionsList }) {
                 </div>
               </div>
             </div>
-            <div className="col-2 ">
-              <p className="">
+            <div className="col-2 mt-5 px-0 askedOnuserPosted">
+              <p className="small">
                 asked {moment(question.askedOn).fromNow()} {question.userPosted}
               </p>
             </div>

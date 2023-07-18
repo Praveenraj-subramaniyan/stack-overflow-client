@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginAction } from "../actions/loginActions";
 
 function Login() {
-   const loginResponse = useSelector((state) => state.loginReducer);
+   const loginResponse = useSelector((state) => state.loginReducer?.data);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [loginData, setloginData] = useState({
@@ -35,7 +35,6 @@ function Login() {
   }, [loginResponse]);
 
   function HandleLoginResponse(response) {
-    console.log(response?.status);
     if (response === "Inavlid User name or Password") {
       setisVisible({
         status: "visually-true",

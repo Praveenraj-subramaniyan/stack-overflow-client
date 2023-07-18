@@ -9,7 +9,7 @@ const loginReducer = (state = null , action) => {
         sameSite: "None",
         secure: true,
       });
-      return action?.data
+      return {...state, data:action?.data}
     case "LOGOUT":
       Cookies.remove("Profile", { sameSite: "None", secure: true });
       return { ...state, data: null };
