@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../images/icon.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./CSS/Login.css";
+import { useDispatch, useSelector } from "react-redux";
+import { loginAction } from "../actions/loginActions";
 
 function Login() {
+   const loginResponse = useSelector((state) => state.loginReducer);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [loginData, setloginData] = useState({
-    emailIdLogin: "",
-    passwordLogin: "",
+    email: "",
+    password: "",
   });
   function HandleLoginData(event) {
     const target = event.target;
@@ -16,6 +21,35 @@ function Login() {
       ...prevState,
       [name]: value,
     }));
+  }
+
+  async function HandleLoginSubmit(event) {
+    event.preventDefault();
+    setIsLoading(true);
+    dispatch(loginAction(loginData));
+  }
+  useEffect(() => {
+    if (loginResponse) {
+      HandleLoginResponse(loginResponse);
+    }
+  }, [loginResponse]);
+
+  function HandleLoginResponse(response) {
+    console.log(response?.status);
+    if (response === "Inavlid User name or Password") {
+      setisVisible({
+        status: "visually-true",
+        message: response,
+      });
+    } else if (response === "Server Busy") {
+      setisVisible({
+        status: "visually-true",
+        message: response,
+      });
+    } else if (response?.status) {
+      navigate("/");
+    }
+    setIsLoading(false);
   }
   const [isLoading, setIsLoading] = useState(false);
   const [isVisible, setisVisible] = useState({
@@ -27,8 +61,7 @@ function Login() {
       <div className="container mt-5">
         <img className="loginLogo" src={logo} alt="Logo" />
         <div className="loginBoxDiv">
-          <form className="bg-white loginForm">
-            {/* onSubmit={HandleLoginSubmit} */}
+          <form className="bg-white loginForm" onSubmit={HandleLoginSubmit}>
             <div className=" ms-4">
               <label className="mt-4 labelFont">Email</label>
               <br />
@@ -36,9 +69,9 @@ function Login() {
                 className=" mt-1 logsignwidth"
                 type="email"
                 onChange={HandleLoginData}
-                name="emailIdLogin"
+                name="email"
                 id="emailid"
-                value={loginData.emailIdLogin}
+                value={loginData.email}
                 required
               />
               <br />
@@ -54,20 +87,19 @@ function Login() {
                 className=" mt-1 logsignwidth"
                 type="password"
                 onChange={HandleLoginData}
-                name="passwordLogin"
-                value={loginData.passwordLogin}
+                name="password"
+                value={loginData.password}
                 required
               />
-              <label
-                htmlFor="emailIdLogin"
+              <p
                 className={
-                  isVisible.for === "login"
-                    ? isVisible.status
-                    : "visually-hidden"
+                  isVisible.status === "visually-hidden"
+                    ? "visually-hidden"
+                    : isVisible.status
                 }
               >
                 {isVisible.message}
-              </label>
+              </p>
               <button
                 className="btn btn-primary mt-3 mb-5 pt-1 pb-2 logsignwidth"
                 type="submit"

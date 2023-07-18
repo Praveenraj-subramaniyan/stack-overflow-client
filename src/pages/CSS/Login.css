@@ -36,6 +36,14 @@
   margin-top: 9%;
   margin-bottom: 0%;
 }
+.visually-hidden {
+  visibility: hidden;
+}
+.visually-true {
+  visibility: visible;
+  color: red;
+  font-size: small;
+}
 @media (min-width: 600px) and (max-width: 830px) {
   .loginBoxDiv {
     width: 50%;

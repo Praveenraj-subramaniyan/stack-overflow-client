@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logosignin from "../images/icon.png";
 import "./CSS/Signin.css";
+import { SignUPAPI } from "../api";
 
 function Signin() {
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [signupData, setsignupData] = useState({
     name: "",
@@ -18,6 +20,30 @@ function Signin() {
       ...prevState,
       [name]: value,
     }));
+  }
+  async function HandleSignUpSubmit(event) {
+    event.preventDefault();
+    setIsLoading(true);
+    HandleSignUpResponse(await SignUPAPI(signupData));
+    setIsLoading(false);
+  }
+  function HandleSignUpResponse(response) {
+    console.log(response);
+    if (response === true) {
+      alert("Registration link sent to your mail id");
+      navigate("/login");
+    } else if (response === false) {
+      setisVisible({
+        status: "visually-true",
+        message: "Already registered",
+      });
+    } else {
+      setisVisible({
+        status: "visually-true",
+        message: "Server time out",
+      });
+    }
+    setIsLoading(false);
   }
   const [isVisible, setisVisible] = useState({
     status: "visually-hidden",
@@ -73,16 +99,15 @@ function Signin() {
       <div className="col-6 mainsigninDiv">
         <div className="SigninBoxDiv ms-2">
           <img className="signinLogo mb-3" src={logosignin} alt="Logo" />
-          <form className="bg-white signinForm">
-            {/* onSubmit={HandleLoginSubmit} */}
+          <form className="bg-white signinForm" onSubmit={HandleSignUpSubmit}>
             <div className=" ms-4">
               <label className="mt-4 labelFont">Display Name</label>
               <br />
               <input
                 className=" mt-1 logsignwidth"
-                type="email"
+                type="text"
                 onChange={HandleSignUpData}
-                name="text"
+                name="name"
                 id="name"
                 value={signupData.name}
                 required
@@ -106,16 +131,16 @@ function Signin() {
                 className=" mt-1 logsignwidth"
                 type="password"
                 onChange={HandleSignUpData}
-                name="passwordLogin"
+                name="password"
                 value={signupData.password}
                 required
               />
               <label
                 htmlFor="emailIdLogin"
                 className={
-                  isVisible.for === "login"
-                    ? isVisible.status
-                    : "visually-hidden"
+                  isVisible.status === "visually-hidden"
+                    ? "visually-hidden"
+                    : isVisible.status
                 }
               >
                 {isVisible.message}

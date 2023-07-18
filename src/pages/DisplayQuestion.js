@@ -28,18 +28,18 @@ function DisplayQuestion() {
       ],
       userPosted: "mano",
       userId: 1,
-      askedOn: "july 1 2023",
+      askedOn: "2023-01-01",
       answer: [
         {
           answerBody: "Answer",
           userAnswered: "kumar",
-          answeredOn: "jan 2 2023",
+          answeredOn: "2023-01-01",
           userId: 2,
         },
         {
           answerBody: "Answer 2",
           userAnswered: "kumar",
-          answeredOn: "jan 2 2023",
+          answeredOn: "2023-01-01",
           userId: 2,
         },
       ],
@@ -53,13 +53,13 @@ function DisplayQuestion() {
       questionBody: "It meant to be",
       questionTags: ["javascript", "R", "python"],
       userPosted: "mano",
-      askedOn: "jan 1",
+      askedOn: "2023-01-01",
       userId: 1,
       answer: [
         {
           answerBody: "Answer",
           userAnswered: "kumar",
-          answeredOn: "jan 2",
+          answeredOn: "2023-01-01",
           userId: 2,
         },
       ],
@@ -73,13 +73,13 @@ function DisplayQuestion() {
       questionBody: "It meant to be",
       questionTags: ["javascript", "R", "python"],
       userPosted: "mano",
-      askedOn: "jan 1",
+      askedOn: "2023-01-01",
       userId: 1,
       answer: [
         {
           answerBody: "Answer",
           userAnswered: "kumar",
-          answeredOn: "jan 2",
+          answeredOn: "2023-01-01",
           userId: 2,
         },
       ],

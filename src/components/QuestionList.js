@@ -7,7 +7,7 @@ function QuestionList({ questionsList }) {
   return (
     <div>
       {questionsList.map((question) => (
-        <div className="QuestionDiv">
+        <div className="QuestionDiv" key={question._id}>
           <div className="row ms-1 text-secondary mt-2">
             <div className="col-1">
               {/* <p>{question.upVote.length - question.downVote.length}</p> */}
