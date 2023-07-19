@@ -7,7 +7,9 @@ import { useDispatch, useSelector } from "react-redux";
 function HomeMainBar() {
   const questionsList = useSelector((state) => state.questionsReducer.data);
   const location = useLocation();
-
+  if (!questionsList) {
+    return <div className="spinner-border  isLoading"></div>;
+  }
   return (
     <div className="HomeMainBarDiv mt-4 ms-2">
       <div className="row ms-2">
@@ -19,14 +21,10 @@ function HomeMainBar() {
         </Link>
       </div>
       <div className="mt-4">
-        {questionsList === null ? (
-          <h1>Loading...</h1>
-        ) : (
           <div>
             <p className="ms-3">{questionsList.length} questions</p>
             <QuestionList questionsList={questionsList} />
           </div>
-        )}
       </div>
     </div>
   );

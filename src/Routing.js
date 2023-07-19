@@ -5,7 +5,7 @@ import Login from "./pages/Login";
 import Signin from "./pages/Signin";
 import Questions from "./pages/Questions";
 import AskQuestion from "./pages/AskQuestion";
-import DisplayQuestion from "./pages/DisplayQuestion";
+import QuestionDetails from "./pages/QuestionDetails";
 
 function Routing() {
   return (
@@ -15,7 +15,7 @@ function Routing() {
         <Route path="/signin" element={<Signin />} />
         <Route path="/questions" element={<Questions />} />
         <Route path="/question/ask" element={<AskQuestion />} />
-        <Route path="/question/details/:id" element={<DisplayQuestion />} />
+        <Route path="/question/details/:id" element={<QuestionDetails />} />
       </Routes>
   );
 }

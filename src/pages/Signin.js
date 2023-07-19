@@ -6,7 +6,7 @@ import { SignUPAPI } from "../api";
 
 function Signin() {
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [signupData, setsignupData] = useState({
     name: "",
     email: "",
@@ -25,7 +25,6 @@ function Signin() {
     event.preventDefault();
     setIsLoading(true);
     HandleSignUpResponse(await SignUPAPI(signupData));
-    setIsLoading(false);
   }
   function HandleSignUpResponse(response) {
     console.log(response);
@@ -49,6 +48,9 @@ function Signin() {
     status: "visually-hidden",
     message: "null",
   });
+  if (isLoading) {
+    return <div className="spinner-border  isLoading"></div>;
+  }
   return (
     <div className=" row mt-5 signinDiv">
       <div className="col-6 paraSignin">
@@ -166,11 +168,6 @@ function Signin() {
           </p>
         </div>
       </div>
-      {isLoading && (
-        <div className="isLoadingLogin">
-          <div className="spinner-border  "></div>
-        </div>
-      )}
     </div>
   );
 }

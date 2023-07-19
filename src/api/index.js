@@ -25,7 +25,6 @@ export const SignUPAPI = async (loginData) => {
 };
 
 export const AskQuestionAPI = async (questionData) => {
-  console.log(questionData);
   try {
     const response = await API.post("/questions/ask", questionData, {
       headers: {
@@ -42,6 +41,33 @@ export const GetQuestionListAPI = async () => {
   try {
     const response = await API.get("/questions");
     return response.data;
+  } catch (error) {
+    return "Server Busy";
+  }
+};
+
+export const PostAnswerAPI = async (answer) => {
+  try {
+    const response = await API.post("/answer/new/"+answer.id, answer, {
+      headers: {
+        Authorization: `Bearer ${authToken.token}`,
+      },
+    });
+    return response;
+  } catch (error) {
+    return "Server Busy";
+  }
+};
+
+export const deleteQuestionAPI = async (id) => {
+  try {
+    const response = await API.delete("/questions/delete/"+id, {
+      headers: {
+        Authorization: `Bearer ${authToken.token}`,
+      },
+    });
+    console.log('deleteQuestionAPI',response)
+    return response;
   } catch (error) {
     return "Server Busy";
   }

@@ -15,8 +15,8 @@ function AskQuestion() {
   async function HandleAskQuestionSubmit(event) {
     event.preventDefault();
     if (currentUser?.status) {
-      let response = dispatch(AskQuestionAction(newQuestion));
-      if (response) {
+      let response = await dispatch(AskQuestionAction(newQuestion));
+      if (response == true) {
         alert("Question posted successfully");
         navigate("/");
       } else if (response === "Server Busy") {
@@ -26,6 +26,7 @@ function AskQuestion() {
         alert("Permission Denied");
       }
     } else {
+      alert("Login to ask a question");
       navigate("/login");
     }
 
