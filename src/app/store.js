@@ -9,7 +9,7 @@ import questionsReducer from "../reducers/questionsReducer";
 const rootReducer = combineReducers({
   loginReducer: loginReducer,
   currentUserReducer: currentUserReducer,
-  questionsReducer:questionsReducer,
+  questionsReducer: questionsReducer,
 });
 export const store = configureStore({
   reducer: rootReducer,

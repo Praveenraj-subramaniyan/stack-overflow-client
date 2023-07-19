@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./CSS/Login.css";
 import { useDispatch, useSelector } from "react-redux";
 import { loginAction } from "../actions/loginActions";
-
+import {currentUserActions} from "../actions/currentUserActions"
 function Login() {
    const loginResponse = useSelector((state) => state.loginReducer?.data);
   const navigate = useNavigate();
@@ -46,6 +46,7 @@ function Login() {
         message: response,
       });
     } else if (response?.status) {
+      dispatch(currentUserActions())
       navigate("/");
     }
     setIsLoading(false);

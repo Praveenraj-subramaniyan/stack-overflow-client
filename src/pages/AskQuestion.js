@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import "./CSS/AskQuestion.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { AskQuestionAPI } from "../api";
-
+import { AskQuestionAction } from "../actions/questionsActions";
 function AskQuestion() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [newQuestion, setnewQuestion] = useState({
     questionTitle: "",
@@ -15,7 +15,7 @@ function AskQuestion() {
   async function HandleAskQuestionSubmit(event) {
     event.preventDefault();
     if (currentUser?.status) {
-      let response = await AskQuestionAPI(newQuestion);
+      let response = dispatch(AskQuestionAction(newQuestion));
       if (response) {
         alert("Question posted successfully");
         navigate("/");

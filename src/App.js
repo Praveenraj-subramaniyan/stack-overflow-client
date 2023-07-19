@@ -11,7 +11,7 @@ function App() {
 
   useEffect(() => {
     dispatch(GetAllQuestions());
-  }, []);
+  }, [dispatch]);
   return (
     <div>
     <BrowserRouter >

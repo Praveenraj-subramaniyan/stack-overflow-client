@@ -10,8 +10,7 @@ function QuestionList({ questionsList }) {
         <div className="QuestionDiv" key={question._id}>
           <div className="row ms-1 text-secondary mt-2">
             <div className="col-1">
-              {/* <p>{question.upVote.length - question.downVote.length}</p> */}
-              <p className="text-center">5</p>
+              <p className="text-center">{question.upVote.length - question.downVote.length}</p>
               <p>votes</p>
             </div>
             <div className="col-1">
@@ -28,7 +27,9 @@ function QuestionList({ questionsList }) {
               <div className="displaytagsDiv mt-1">
                 <div className="displaytags ">
                   {question.questionTags.map((tag) => (
-                    <p className="displaytagsQuetions me-1 px-2" key={tag}>{tag}</p>
+                    <p className="displaytagsQuetions me-1 px-2" key={tag}>
+                      {tag}
+                    </p>
                   ))}
                 </div>
               </div>

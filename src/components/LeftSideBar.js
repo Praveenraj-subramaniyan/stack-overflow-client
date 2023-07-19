@@ -18,10 +18,7 @@ function LeftSideBar(data) {
                 } nav-item small py-1 mt-1`}
                 onClick={() => setbuttonClick("Home")}
               >
-                <Link
-                  to="/"
-                  className={` text-decoration-none text-dark px-2`}
-                >
+                <Link to="/" className={` text-decoration-none text-dark px-2`}>
                   Home
                 </Link>
               </li>

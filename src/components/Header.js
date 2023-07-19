@@ -12,11 +12,11 @@ function Header() {
   const dispatch = useDispatch();
   //const [currentUser,setcurrentUser]  =useState(null)
   // useEffect(() =>{
-  //   
+  //
   // },[])
   dispatch(currentUserActions());
   // setcurrentUser
-  let currentUser =(useSelector((state) => state.currentUserReducer)); 
+  let currentUser = useSelector((state) => state.currentUserReducer);
   return (
     <nav className="navbar navbar-expand-sm bg-light headerbar fixed-top py-1">
       <div className="container-fluid">

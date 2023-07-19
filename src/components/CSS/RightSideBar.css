@@ -19,9 +19,9 @@
   width: 13px;
 }
 .WatchedTags {
-    margin-top: 40px;
-    box-shadow: 3px 3px 10px rgb(0 0 0 / 5%), -3px -3px 10px rgb(0 0 0 / 5%);
-  }
+  margin-top: 40px;
+  box-shadow: 3px 3px 10px rgb(0 0 0 / 5%), -3px -3px 10px rgb(0 0 0 / 5%);
+}
 .WatchedTags h4 {
   margin: 0%;
   padding: 15px;
@@ -47,7 +47,7 @@
 }
 
 @media (max-width: 600px) {
-    .RightSideBarDiv {
-      display: none;
-    }
+  .RightSideBarDiv {
+    display: none;
   }
+}

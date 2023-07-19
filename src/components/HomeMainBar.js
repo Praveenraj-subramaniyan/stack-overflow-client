@@ -1,18 +1,22 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import "./CSS/HomeMainBar.css";
-import QuestionList from "../components/QuestionList"
+import QuestionList from "../components/QuestionList";
 import { useDispatch, useSelector } from "react-redux";
 
 function HomeMainBar() {
   const questionsList = useSelector((state) => state.questionsReducer.data);
-  const location =useLocation();
+  const location = useLocation();
 
   return (
-    <div className="HomeMainBarDiv mt-4 ">
-      <div className="row ms-3">
-        <h1 className="col-10">{location.pathname === '/' ? "Top Questions" : "All Questions"}</h1>
-        <Link to="/question/ask" className="btn btn-primary mt-3 mb-1 col-2 py-1" >Ask Questions</Link>
+    <div className="HomeMainBarDiv mt-4 ms-2">
+      <div className="row ms-2">
+        <h1 className="col-10">
+          {location.pathname === "/" ? "Top Questions" : "All Questions"}
+        </h1>
+        <Link to="/question/ask" className="btn btn-primary mt-3 mb-1 col-2">
+          Ask Questions
+        </Link>
       </div>
       <div className="mt-4">
         {questionsList === null ? (
