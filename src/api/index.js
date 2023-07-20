@@ -48,7 +48,7 @@ export const GetQuestionListAPI = async () => {
 
 export const PostAnswerAPI = async (answer) => {
   try {
-    const response = await API.post("/answer/new/"+answer.id, answer, {
+    const response = await API.post("/answer/new/" + answer.id, answer, {
       headers: {
         Authorization: `Bearer ${authToken.token}`,
       },
@@ -61,7 +61,7 @@ export const PostAnswerAPI = async (answer) => {
 
 export const deleteQuestionAPI = async (id) => {
   try {
-    const response = await API.delete("/questions/delete/"+id, {
+    const response = await API.delete("/questions/delete/" + id, {
       headers: {
         Authorization: `Bearer ${authToken.token}`,
       },
@@ -72,18 +72,18 @@ export const deleteQuestionAPI = async (id) => {
   }
 };
 
-export const deleteAnswerAPI = async (id,answerId,noOfAnswers) => {
-  const payLoad={
+export const deleteAnswerAPI = async (id, answerId, noOfAnswers) => {
+  const payLoad = {
     answerId,
-    noOfAnswers
-  }
+    noOfAnswers,
+  };
   try {
-    const response = await API.post("/answer/delete/"+id, payLoad,{
+    const response = await API.post("/answer/delete/" + id, payLoad, {
       headers: {
         Authorization: `Bearer ${authToken.token}`,
       },
     });
-    console.log('deleteQuestionAPI',response)
+    console.log("deleteQuestionAPI", response);
     return response;
   } catch (error) {
     return "Server Busy";
@@ -104,6 +104,44 @@ export const GetAllUsersApi = async () => {
     const response = await API.get("/users");
     return response.data;
   } catch (error) {
+    return "Server Busy";
+  }
+};
+
+export const ForgetPasswordApi = async (email) => {
+  try {
+    const response = await API.post("/forgetpassword", { email });
+    if (response.data === true) {
+      const expiryDate = new Date(Date.now() + 24 * 60 * 60 * 1000);
+      Cookies.set("forget_password", JSON.stringify(email), {
+        expires: expiryDate,
+      });
+    }
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return "Server Busy";
+  }
+};
+
+export const NewPasswordApi = async (otp, newPassword, confirmPassword) => {
+  try {
+    const cookieValue = Cookies.get("forget_password");
+    const email = cookieValue ? JSON.parse(cookieValue) : null;
+    if (email === null) {
+      return "login";
+    } else {
+      const payLoad = {
+        email,
+        otp,
+        newPassword,
+        confirmPassword,
+      };
+      const response = await API.post("/forgetpassword/new", payLoad);
+      return response.data;
+    }
+  } catch (error) {
+    console.error(error);
     return "Server Busy";
   }
 };

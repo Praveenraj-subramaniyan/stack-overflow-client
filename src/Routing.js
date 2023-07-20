@@ -8,6 +8,8 @@ import AskQuestion from "./pages/AskQuestion";
 import QuestionDetails from "./pages/QuestionDetails";
 import Tags from "./pages/Tags";
 import Users from "./pages/Users";
+import ForgetPassword from "./pages/ForgetPassword";
+import NewPassword from "./pages/NewPassword";
 
 function Routing() {
   return (
@@ -20,6 +22,8 @@ function Routing() {
       <Route path="/question/details/:id" element={<QuestionDetails />} />
       <Route path="/tags" element={<Tags />} />
       <Route path="/users" element={<Users />} />
+      <Route path="/password/forget" element={<ForgetPassword />} />
+      <Route path="/password/new" element={<NewPassword />} />
     </Routes>
   );
 }

@@ -1,0 +1,13 @@
+.displaytagsTags {
+    color: hsl(205, 36%, 53%);
+    background-color: hsl(205, 53%, 88%);
+    border-radius: 5px;
+    width: fit-content;
+    
+  }
+  .TagsDivtags p{
+    font-size: 12px !important;
+  }
+  .TagsDivtags{
+    border: 1px solid gainsboro;
+  }

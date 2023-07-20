@@ -46,8 +46,8 @@ function Login() {
         message: response,
       });
     } else if (response?.status) {
-      await dispatch(currentUserActions())
-      navigate("/");
+      dispatch(currentUserActions())
+      // navigate("/");
     }
     setIsLoading(false);
   }
@@ -80,7 +80,7 @@ function Login() {
               <br />
               <label className="labelFont mt-3">Password</label>
               <Link
-                to="/forgetpassword"
+                to="/password/forget"
                 className="forgrtpasswordlink text-decoration-none"
               >
                 Forget password?
