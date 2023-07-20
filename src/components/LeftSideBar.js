@@ -46,7 +46,7 @@ function LeftSideBar(data) {
                 } nav-item small ms-3 mt-2`}
                 onClick={() => setbuttonClick("Tags")}
               >
-                <Link to="/tags" className="nav-link text-secondary">
+                <Link to="/tags" className={`nav-link text-secondary`}>
                   Tags
                 </Link>
               </li>

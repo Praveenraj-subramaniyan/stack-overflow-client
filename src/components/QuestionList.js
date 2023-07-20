@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation, useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import moment from "moment";
 import "./CSS/QuestionList.css";
 
@@ -26,8 +26,8 @@ function QuestionList({ questionsList }) {
               </Link>
               <div className="displaytagsDiv mt-1">
                 <div className="displaytags ">
-                  {question.questionTags.map((tag) => (
-                    <p className="displaytagsQuetions me-1 px-2" key={tag}>
+                  {question.questionTags.map((tag,index) => (
+                    <p className="displaytagsQuetions me-1 px-2" key={index}>
                       {tag}
                     </p>
                   ))}

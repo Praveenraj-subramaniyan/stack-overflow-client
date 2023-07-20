@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { useLocation, useNavigate, Link } from "react-router-dom";
+import React from "react";
+import { useLocation, Link } from "react-router-dom";
 import "./CSS/HomeMainBar.css";
 import QuestionList from "../components/QuestionList";
-import { useDispatch, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 
 function HomeMainBar() {
   const questionsList = useSelector((state) => state.questionsReducer.data);

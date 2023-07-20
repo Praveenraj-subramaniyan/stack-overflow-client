@@ -4,7 +4,7 @@ const userValue = cookieValue ? JSON.parse(cookieValue) : null;
 
 export const currentUserActions = () => async (dispatch) => {
   try {
-    dispatch({ type: "CURRENT_USER", data: userValue });
+    dispatch({ type: "CurrentUser", data: userValue });
   } catch (error) {
     console.log(error);
   }

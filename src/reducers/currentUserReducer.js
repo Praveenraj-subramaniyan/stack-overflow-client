@@ -1,6 +1,6 @@
 const currentUserReducer = (state = null, action) => {
     switch (action.type) {
-      case "CURRENT_USER":
+      case "CurrentUser":
          return action.data;
       default:
         return state;

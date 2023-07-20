@@ -1,21 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect} from "react";
 import "./CSS/Header.css";
 import logo from "../images/logo.png";
 import searchIcon from "../images/search-solid.svg";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Avatar from "./Avatar";
 import { useDispatch, useSelector } from "react-redux";
 import { currentUserActions } from "../actions/currentUserActions";
 
 function Header() {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
-  //const [currentUser,setcurrentUser]  =useState(null)
-  // useEffect(() =>{
-  //
-  // },[])
-  dispatch(currentUserActions());
-  // setcurrentUser
+  useEffect(() => {
+    dispatch(currentUserActions());
+  }, [dispatch]);
   let currentUser = useSelector((state) => state.currentUserReducer);
   return (
     <nav className="navbar navbar-expand-sm bg-light headerbar fixed-top py-1">
@@ -74,7 +70,7 @@ function Header() {
                 borderRadius="10%"
                 color="white"
               >
-                P
+                {currentUser?.name[0]}
               </Avatar>
             </Link>
             <button className="btn btn-primary ms-2 me-3 loginbtn">

@@ -20,7 +20,7 @@ function Avatar({
     cursor: cursor || null,
     textDecoration: "none",
   };
-  return <div style={style}>{children}</div>;
+  return <div style={style}>{children.toUpperCase()}</div>;
 }
 
 export default Avatar;

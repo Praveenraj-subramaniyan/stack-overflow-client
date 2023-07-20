@@ -34,7 +34,7 @@ function Login() {
     }
   }, [loginResponse]);
 
-  function HandleLoginResponse(response) {
+  async function HandleLoginResponse(response) {
     if (response === "Inavlid User name or Password") {
       setisVisible({
         status: "visually-true",
@@ -46,7 +46,7 @@ function Login() {
         message: response,
       });
     } else if (response?.status) {
-      dispatch(currentUserActions())
+      await dispatch(currentUserActions())
       navigate("/");
     }
     setIsLoading(false);

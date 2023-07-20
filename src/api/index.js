@@ -66,8 +66,43 @@ export const deleteQuestionAPI = async (id) => {
         Authorization: `Bearer ${authToken.token}`,
       },
     });
+    return response;
+  } catch (error) {
+    return "Server Busy";
+  }
+};
+
+export const deleteAnswerAPI = async (id,answerId,noOfAnswers) => {
+  const payLoad={
+    answerId,
+    noOfAnswers
+  }
+  try {
+    const response = await API.post("/answer/delete/"+id, payLoad,{
+      headers: {
+        Authorization: `Bearer ${authToken.token}`,
+      },
+    });
     console.log('deleteQuestionAPI',response)
     return response;
+  } catch (error) {
+    return "Server Busy";
+  }
+};
+
+export const GetTagsListAPI = async () => {
+  try {
+    const response = await API.get("/tags");
+    return response.data;
+  } catch (error) {
+    return "Server Busy";
+  }
+};
+
+export const GetAllUsersApi = async () => {
+  try {
+    const response = await API.get("/users");
+    return response.data;
   } catch (error) {
     return "Server Busy";
   }

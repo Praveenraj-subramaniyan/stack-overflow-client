@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import LeftSideBar from "../components/LeftSideBar";
 import RightSideBar from "../components/RightSideBar";
-import "./CSS/DisplayQuestion.css";
-import { useParams, Link, useNavigate, useLocation } from "react-router-dom";
+import "./CSS/QuestionDetails.css";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import upvote from "../images/sort-up.svg";
 import downvote from "../images/sort-down.svg";
 import moment from "moment";
 import Avatar from "../components/Avatar";
 import { useDispatch, useSelector } from "react-redux";
-import { PostAnswer, deleteQuestion } from "../actions/questionsActions";
+import { PostAnswer, deleteQuestion, deleteAnswer } from "../actions/questionsActions";
 
 function QuestionDetails() {
   const { id } = useParams();
@@ -39,6 +39,22 @@ function QuestionDetails() {
   }
    const handleDeleteQuestion =async () => {
     const reponse = await dispatch(deleteQuestion(id));
+    if(reponse.data === true){
+      alert("Question deleted successfully");
+      navigate("/");
+    }
+    else if(reponse.data ==="Invalid"){
+      alert(" Question not found");
+      navigate("/");
+    }
+    else if(reponse.data ==="Server Busy"){
+      alert("Session Expired");
+      navigate("/login");
+    }
+  };
+
+  const handleAnswerDelete =async (answerId,noOfAnswers) => {
+    const reponse = await dispatch(deleteAnswer(id,answerId,noOfAnswers -1));
     if(reponse === true){
       alert("Question deleted successfully");
       navigate("/");
@@ -53,7 +69,7 @@ function QuestionDetails() {
     }
   };
 
-  if (!questionsList) {
+  if (!questionsList || questionsList.length === 0) {
     return <div className="spinner-border  isLoading"></div>;
   }
   return (
@@ -92,14 +108,15 @@ function QuestionDetails() {
                       <p>{question.questionBody}</p>
                       <div className="displaytagsDiv mt-1">
                         <div className="displaytags ">
-                          {question.questionTags.map((tag) => (
+                          {question.questionTags.map((tag,index) => (
                             <p
                               className="displaytagsQuetions me-1 px-2"
-                              key={tag}
+                              key={index}
                             >
                               {tag}
                             </p>
-                          ))}
+                          )
+                          )}
                         </div>
                       </div>
                       {currentUser?.email === question?.userEmail && (
@@ -108,7 +125,7 @@ function QuestionDetails() {
                       className="btn btn-link p-0 text-decoration-none text-secondary"
                       onClick={handleDeleteQuestion}
                     >
-                      delete Q
+                      delete
                     </button>)}
                     </div>
                   </div>
@@ -138,15 +155,15 @@ function QuestionDetails() {
               <div>
                 <h3>{questionsList[0].noOfAnswers} Answers</h3>
                 {questionsList[0].answer.map((answers) => (
-                  <div>
+                  <div key={answers._id}>
                     <p className="mt-4">{answers.answerBody}</p>
-                    {/* <button
+                    <button
                       type="button"
                       className="btn btn-link p-0 text-decoration-none text-secondary"
-                      //onClick={handleDelete}
+                      onClick={()=>handleAnswerDelete(answers._id,questionsList[0].noOfAnswers)}
                     >
-                      Delete
-                    </button> */}
+                      delete
+                    </button>
                     <div className="askedOnmoment me-0 row">
                       <p className="col-12 pe-0">
                         asked {moment(answers.answeredOn).fromNow()}

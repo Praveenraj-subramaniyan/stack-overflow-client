@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./CSS/AskQuestion.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { AskQuestionAction } from "../actions/questionsActions";
 function AskQuestion() {
@@ -16,13 +16,13 @@ function AskQuestion() {
     event.preventDefault();
     if (currentUser?.status) {
       let response = await dispatch(AskQuestionAction(newQuestion));
-      if (response == true) {
+      if (response.data === true) {
         alert("Question posted successfully");
         navigate("/");
-      } else if (response === "Server Busy") {
+      } else if (response.data === "Server Busy") {
         alert("Session Expired");
         navigate("/login");
-      } else if (response === "Invalid") {
+      } else if (response.data === "Invalid") {
         alert("Permission Denied");
       }
     } else {

@@ -6,17 +6,21 @@ import Signin from "./pages/Signin";
 import Questions from "./pages/Questions";
 import AskQuestion from "./pages/AskQuestion";
 import QuestionDetails from "./pages/QuestionDetails";
+import Tags from "./pages/Tags";
+import Users from "./pages/Users";
 
 function Routing() {
   return (
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signin" element={<Signin />} />
-        <Route path="/questions" element={<Questions />} />
-        <Route path="/question/ask" element={<AskQuestion />} />
-        <Route path="/question/details/:id" element={<QuestionDetails />} />
-      </Routes>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signin" element={<Signin />} />
+      <Route path="/questions" element={<Questions />} />
+      <Route path="/question/ask" element={<AskQuestion />} />
+      <Route path="/question/details/:id" element={<QuestionDetails />} />
+      <Route path="/tags" element={<Tags />} />
+      <Route path="/users" element={<Users />} />
+    </Routes>
   );
 }
 
