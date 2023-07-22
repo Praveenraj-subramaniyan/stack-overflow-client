@@ -10,6 +10,7 @@ import Tags from "./pages/Tags";
 import Users from "./pages/Users";
 import ForgetPassword from "./pages/ForgetPassword";
 import NewPassword from "./pages/NewPassword";
+import UserDetails from "./pages/UserDetails";
 
 function Routing() {
   return (
@@ -24,6 +25,7 @@ function Routing() {
       <Route path="/users" element={<Users />} />
       <Route path="/password/forget" element={<ForgetPassword />} />
       <Route path="/password/new" element={<NewPassword />} />
+      <Route path="/user/details/:id" element={<UserDetails />} />
     </Routes>
   );
 }

@@ -9,6 +9,7 @@ function Login() {
    const loginResponse = useSelector((state) => state.loginReducer?.data);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const [loginData, setloginData] = useState({
     email: "",
     password: "",
@@ -46,8 +47,9 @@ function Login() {
         message: response,
       });
     } else if (response?.status) {
-      dispatch(currentUserActions())
-      // navigate("/");
+       await dispatch(currentUserActions());
+       console.log(response?.status)
+      navigate("/");
     }
     setIsLoading(false);
   }

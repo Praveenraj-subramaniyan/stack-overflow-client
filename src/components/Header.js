@@ -60,7 +60,7 @@ function Header() {
         ) : (
           <form className="d-flex me-5 headerFormButton">
             <Link
-              to={`/Users/${currentUser?.result?._id}`}
+              to={`/user/details/${currentUser?.id}`}
               className="text-decoration-none"
             >
               <Avatar

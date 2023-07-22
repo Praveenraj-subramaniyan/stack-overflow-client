@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import LeftSideBar from "../components/LeftSideBar";
+import { Link } from "react-router-dom";
 import "./CSS/Users.css";
 import { useDispatch, useSelector } from "react-redux";
 import { GetAllUsers } from "../actions/usersAction";
@@ -26,18 +27,28 @@ function Users() {
             {userList.map((user, index) => (
               <div className="col-3 row p-3 me-2 mb-3" key={index}>
                 <div className="col-3">
-                  <Avatar
-                    backgroundColor="#009dff"
-                    px="14px"
-                    py="7px"
-                    borderRadius="5%"
-                    color="white"
+                  <Link
+                    to={`/user/${user?._id}`}
+                    className="text-decoration-none"
                   >
-                    {user.name[0]}
-                  </Avatar>
+                    <Avatar
+                      backgroundColor="#009dff"
+                      px="14px"
+                      py="7px"
+                      borderRadius="5%"
+                      color="white"
+                    >
+                      {user.name[0]}
+                    </Avatar>
+                  </Link>
                 </div>
                 <div className="col-8 px-0 mt-2">
-                  <span>{user.name}</span>
+                  <Link
+                    to={`/user/details/${user?._id}`}
+                    className="text-decoration-none"
+                  >
+                    <span>{user.name}</span>
+                  </Link>
                 </div>
               </div>
             ))}
