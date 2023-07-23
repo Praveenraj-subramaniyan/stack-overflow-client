@@ -11,7 +11,7 @@ function Tags() {
   }, []);
   const tagsList = useSelector((state) => state.tagsReducer?.data);
   if (!tagsList) {
-    return <div className="spinner-border mt-5  isLoading"></div>;
+    return <div className="spinner-border mt-5  isLoadingTags"></div>;
   }
   return (
     <div>

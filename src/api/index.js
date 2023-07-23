@@ -83,7 +83,6 @@ export const deleteAnswerAPI = async (id, answerId, noOfAnswers) => {
         Authorization: `Bearer ${authToken.token}`,
       },
     });
-    console.log("deleteQuestionAPI", response);
     return response;
   } catch (error) {
     return "Server Busy";
@@ -147,9 +146,23 @@ export const NewPasswordApi = async (otp, newPassword, confirmPassword) => {
 };
 
 export const UpdateProfileAPI = async (profileData) => {
-  console.log("profileData",profileData)
   try {
     const response = await API.post("/users/update/",profileData, {
+      headers: {
+        Authorization: `Bearer ${authToken.token}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    return "Server Busy";
+  }
+};
+
+
+export const voteQuestionAPI = async (id,voteValue) => {
+  console.log(id,voteValue)
+  try {
+    const response = await API.post("/questions/vote/"+id,{voteValue}, {
       headers: {
         Authorization: `Bearer ${authToken.token}`,
       },

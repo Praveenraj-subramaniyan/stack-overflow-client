@@ -8,7 +8,12 @@ import downvote from "../images/sort-down.svg";
 import moment from "moment";
 import Avatar from "../components/Avatar";
 import { useDispatch, useSelector } from "react-redux";
-import { PostAnswer, deleteQuestion, deleteAnswer } from "../actions/questionsActions";
+import {
+  PostAnswer,
+  deleteQuestion,
+  deleteAnswer,
+  voteQuestion,
+} from "../actions/questionsActions";
 
 function QuestionDetails() {
   const { id } = useParams();
@@ -17,7 +22,7 @@ function QuestionDetails() {
   const questionsList = useSelector((state) => state.questionsReducer.data);
   let currentUser = useSelector((state) => state.currentUserReducer);
   const [Answer, setAnswer] = useState("");
- async function handlePostAnswer(e, answerLength) {
+  async function handlePostAnswer(e, answerLength) {
     e.preventDefault();
     if (currentUser?.status) {
       if (Answer === "") {
@@ -33,42 +38,76 @@ function QuestionDetails() {
         setAnswer("");
       }
     } else {
-      alert("Login to answer a question");
+      alert("Login or signup to answer a question");
       navigate("/login");
     }
   }
-   const handleDeleteQuestion =async () => {
-    const reponse = await dispatch(deleteQuestion(id));
-    if(reponse.data === true){
+  const handleDeleteQuestion = async () => {
+    if (currentUser?.status) {
+      const reponse = await dispatch(deleteQuestion(id));
+      if (reponse.data === true) {
+        alert("Question deleted successfully");
+        navigate("/");
+      } else if (reponse.data === "Invalid") {
+        alert(" Question not found");
+        navigate("/");
+      } else if (reponse.data === "Server Busy") {
+        alert("Session Expired");
+        navigate("/login");
+      }
+    } else {
+    }
+  };
+
+  const handleAnswerDelete = async (answerId, noOfAnswers) => {
+    const reponse = await dispatch(deleteAnswer(id, answerId, noOfAnswers - 1));
+    if (reponse === true) {
       alert("Question deleted successfully");
       navigate("/");
-    }
-    else if(reponse.data ==="Invalid"){
+    } else if (reponse === "Invalid") {
       alert(" Question not found");
       navigate("/");
-    }
-    else if(reponse.data ==="Server Busy"){
+    } else if (reponse === "Server Busy") {
       alert("Session Expired");
       navigate("/login");
     }
   };
 
-  const handleAnswerDelete =async (answerId,noOfAnswers) => {
-    const reponse = await dispatch(deleteAnswer(id,answerId,noOfAnswers -1));
-    if(reponse === true){
-      alert("Question deleted successfully");
-      navigate("/");
-    }
-    else if(reponse ==="Invalid"){
-      alert(" Question not found");
-      navigate("/");
-    }
-    else if(reponse ==="Server Busy"){
-      alert("Session Expired");
-      navigate("/login");
+  const  handleUpVote = async () => {
+    if (currentUser?.status) {
+      let reponse =  await dispatch(voteQuestion(id, "upVote"));
+      if(reponse === true){
+        //window.location.reload()
+      }
+      else if(reponse === "Invalid"){
+        alert("Invalid request")
+      }
+      else if(reponse === "Server Busy"){
+        alert("Server Busy! try again")
+      }
+    } else {
+      alert("Login or Signup to up vote a question");
+      navigate("/Login");
     }
   };
 
+  const handleDownVote = async () => {
+    if (currentUser?.status) {
+     let reponse = await dispatch(voteQuestion(id, "downVote"));
+     if(reponse === true){
+      //window.location.reload()
+     }
+     else if(reponse === "Invalid"){
+       alert("Invalid request")
+     }
+     else if(reponse === "Server Busy"){
+       alert("Server Busy! try again")
+     }
+    } else {
+      alert("Login or Signup to down vote a question");
+      navigate("/Login");
+    }
+  };
   if (!questionsList || questionsList.length === 0) {
     return <div className="spinner-border  isLoading"></div>;
   }
@@ -93,6 +132,7 @@ function QuestionDetails() {
                         alt=""
                         width="18"
                         className="votes-icon"
+                        onClick={handleUpVote}
                       />
                       <p className="mb-0 ms-1">
                         {question.upVote.length - question.downVote.length}
@@ -102,31 +142,32 @@ function QuestionDetails() {
                         alt=""
                         width="18"
                         className="votes-icon"
+                        onClick={handleDownVote}
                       />
                     </div>
                     <div className="col-10">
                       <p>{question.questionBody}</p>
                       <div className="displaytagsDiv mt-1">
                         <div className="displaytags ">
-                          {question.questionTags.map((tag,index) => (
+                          {question.questionTags.map((tag, index) => (
                             <p
                               className="displaytagsQuetions me-1 px-2"
                               key={index}
                             >
                               {tag}
                             </p>
-                          )
-                          )}
+                          ))}
                         </div>
                       </div>
                       {currentUser?.email === question?.userEmail && (
-                      <button
-                      type="button"
-                      className="btn btn-link p-0 text-decoration-none text-secondary"
-                      onClick={handleDeleteQuestion}
-                    >
-                      delete
-                    </button>)}
+                        <button
+                          type="button"
+                          className="btn btn-link p-0 text-decoration-none text-secondary"
+                          onClick={handleDeleteQuestion}
+                        >
+                          delete
+                        </button>
+                      )}
                     </div>
                   </div>
                   <div className="askedOnmoment me-0 row">
@@ -157,13 +198,19 @@ function QuestionDetails() {
                 {questionsList[0].answer.map((answers) => (
                   <div key={answers._id}>
                     <p className="mt-4">{answers.answerBody}</p>
+                    {currentUser?.email === answers?.userEmail && (
                     <button
                       type="button"
                       className="btn btn-link p-0 text-decoration-none text-secondary"
-                      onClick={()=>handleAnswerDelete(answers._id,questionsList[0].noOfAnswers)}
+                      onClick={() =>
+                        handleAnswerDelete(
+                          answers._id,
+                          questionsList[0].noOfAnswers
+                        )
+                      }
                     >
                       delete
-                    </button>
+                    </button>)}
                     <div className="askedOnmoment me-0 row">
                       <p className="col-12 pe-0">
                         asked {moment(answers.answeredOn).fromNow()}

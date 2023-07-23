@@ -67,7 +67,7 @@ function UserDetails() {
     }
      
   }
-  if (!currentUser) {
+  if (!currentProfile) {
     return <div className="spinner-border mt-5  isLoading"></div>;
   }
   return (

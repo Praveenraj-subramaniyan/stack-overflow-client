@@ -11,3 +11,8 @@
   .TagsDivtags{
     border: 1px solid gainsboro;
   }
+  .isLoadingTags{
+    color: #fc8019;
+  margin-left: 45%;
+  margin-top: 18% !important;
+  }

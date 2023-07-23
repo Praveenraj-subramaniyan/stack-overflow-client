@@ -1,4 +1,4 @@
-import { GetQuestionListAPI, AskQuestionAPI, PostAnswerAPI, deleteQuestionAPI, deleteAnswerAPI } from "../api";
+import { GetQuestionListAPI, AskQuestionAPI, PostAnswerAPI, deleteQuestionAPI, deleteAnswerAPI, voteQuestionAPI } from "../api";
 
 export const GetAllQuestions = () => async (dispatch) => {
   try {
@@ -27,6 +27,17 @@ export const deleteQuestion = (id,answerId) => async (dispatch) => {
     return reponse;
   } catch (error) {
     console.log(error);
+  }
+};
+
+export const voteQuestion = (id, value) => async (dispatch) => {
+  try {
+    let reponse = await voteQuestionAPI(id, value);
+    dispatch(GetAllQuestions());
+    return reponse;
+  } catch (error) {
+    console.log(error);
+    return "Sever Busy";
   }
 };
 
