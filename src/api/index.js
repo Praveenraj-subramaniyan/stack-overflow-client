@@ -1,6 +1,6 @@
 import axios from "axios";
 import Cookies from "js-cookie";
-const API = axios.create({ baseURL: "http://localhost:3000/" });
+const API = axios.create({ baseURL: "https://stack-overflow-clone-j3nr.onrender.com/" });
 const cookieValue = Cookies.get("Profile");
 const authToken = cookieValue ? JSON.parse(cookieValue) : null;
 
@@ -160,7 +160,6 @@ export const UpdateProfileAPI = async (profileData) => {
 
 
 export const voteQuestionAPI = async (id,voteValue) => {
-  console.log(id,voteValue)
   try {
     const response = await API.post("/questions/vote/"+id,{voteValue}, {
       headers: {
