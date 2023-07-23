@@ -2,17 +2,23 @@ import React, {useEffect} from "react";
 import "./CSS/Header.css";
 import logo from "../images/logo.png";
 import searchIcon from "../images/search-solid.svg";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import Avatar from "./Avatar";
 import { useDispatch, useSelector } from "react-redux";
 import { currentUserActions } from "../actions/currentUserActions";
 
 function Header() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   useEffect(() => {
     dispatch(currentUserActions());
   }, [dispatch]);
   let currentUser = useSelector((state) => state.currentUserReducer);
+  function handleLogout () {
+    dispatch({ type: "Logout" });
+    navigate("/");
+    window.location.reload();
+  };
   return (
     <nav className="navbar navbar-expand-sm bg-light headerbar fixed-top py-1">
       <div className="container-fluid">
@@ -73,7 +79,7 @@ function Header() {
                 {currentUser?.name[0]}
               </Avatar>
             </Link>
-            <button className="btn btn-primary ms-2 me-3 loginbtn">
+            <button className="btn btn-primary ms-2 me-3 loginbtn" onClick={handleLogout}>
               Log out
             </button>
           </form>

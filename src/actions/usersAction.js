@@ -1,4 +1,5 @@
-import { GetAllUsersApi } from "../api";
+import { GetAllUsersApi, UpdateProfileAPI } from "../api";
+import {currentUserActions} from "./currentUserActions"
 
 export const GetAllUsers = () => async (dispatch) => {
     try {
@@ -9,12 +10,19 @@ export const GetAllUsers = () => async (dispatch) => {
     }
   };
   
-//   export const UpdateProfile = (id, updateData) => async (dispatch) => {
-//     try {
-//       const { data } = await api.updateProfile(id, updateData);
-//       dispatch({ type: "UPDATE_CURRENT_USER", payload: data });
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
+  export const UpdateProfile = (id, updateData) => async (dispatch) => {
+    try {
+      const reponse  = await UpdateProfileAPI(id, updateData);
+      if(reponse === true){
+        dispatch({ type: "UpdateCurrentuser",  data: updateData });
+        console.log(true)
+        return true;
+      }
+      else{
+        return false
+      } 
+    } catch (error) {
+      console.log(error);
+    }
+  };
   

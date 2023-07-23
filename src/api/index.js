@@ -145,3 +145,17 @@ export const NewPasswordApi = async (otp, newPassword, confirmPassword) => {
     return "Server Busy";
   }
 };
+
+export const UpdateProfileAPI = async (profileData) => {
+  console.log("profileData",profileData)
+  try {
+    const response = await API.post("/users/update/",profileData, {
+      headers: {
+        Authorization: `Bearer ${authToken.token}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    return "Server Busy";
+  }
+};
