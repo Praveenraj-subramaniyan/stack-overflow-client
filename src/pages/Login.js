@@ -58,9 +58,9 @@ function Login() {
     status: "visually-hidden",
     message: "null",
   });
-  if (isLoading) {
-    return <div className="spinner-border  isLoading"></div>;
-  }
+  // if (isLoading) {
+  //   return <div className="spinner-border  isLoading"></div>;
+  // }
   return (
     <div className="mainLoginDiv">
       <div className="container mt-5">
@@ -122,6 +122,11 @@ function Login() {
           </p>
         </div>
       </div>
+      {isLoading && (
+        <div className="isLoadingLogin">
+          <div className="spinner-border  "></div>
+        </div>
+      )}
     </div>
   );
 }

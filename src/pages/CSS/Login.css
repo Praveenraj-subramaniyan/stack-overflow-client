@@ -56,3 +56,13 @@
     margin-left: 18%;
   }
 }
+.isLoadingLogin{
+  position: fixed;
+  padding-top: 20%;
+  padding-left: 45%;
+  padding-bottom: 40%;
+  padding-right: 55%;
+  color: #fc8019 !important;
+  background-color: transparent;
+  top: 0;
+}
