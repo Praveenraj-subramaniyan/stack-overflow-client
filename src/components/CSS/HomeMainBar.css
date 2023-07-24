@@ -7,3 +7,18 @@
   margin-left: 35%;
   margin-top: 18%;
 }
+@media (max-width: 600px) {
+  .HomeMainBarDiv {
+    width: 110% !important;
+  }
+  .HomeMainBarDiv h1{
+    width: 50% !important;
+    font-size: 24px;
+  }
+  .HomeMainBarDiv a{
+    width: 30% !important;
+    font-size: small;
+    margin-top: 0% !important;
+    margin-left: 10%;
+  }
+}

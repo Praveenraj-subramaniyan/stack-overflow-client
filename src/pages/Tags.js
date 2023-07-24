@@ -22,14 +22,14 @@ function Tags() {
         <div className="mainrightbarHome col-12">
           <div className="ms-3 mt-3">
             <h3>Tags</h3>
-            <p className="me-5 pe-5">
+            <p className="me-5 pe-5 tagdef">
               A tag is a keyword or label that categorizes your question with
               other, similar questions. Using the right tags makes it easier for
               others to find and answer your question.
             </p>
             <div className="row ms-1">
               {tagsList.map((tag, index) => (
-                <div className="col-3 TagsDivtags p-3 me-5 mb-3" key={index}>
+                <div className="col-12 col-sm-3 TagsDivtags p-3 me-5 mb-3" key={index}>
                   <p className="displaytagsTags px-2 py-1">{tag.tagName}</p>
                   <p>{tag.tagDesc}</p>
                 </div>

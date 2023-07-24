@@ -16,3 +16,8 @@
   margin-left: 45%;
   margin-top: 18% !important;
   }
+  @media (max-width: 600px) {
+  .tagdef{
+ margin-right: 0% !important;
+ padding-right: 0% !important;
+  }}

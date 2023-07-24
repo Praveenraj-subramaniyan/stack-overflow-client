@@ -3,9 +3,6 @@
   border-bottom: 0.5px solid gainsboro;
   border-top: 3px solid #fc8019;
 }
-.searchIconHeader {
-  display: none;
-}
 .form-control {
   width: 330% !important;
 }
@@ -59,7 +56,7 @@
     padding-bottom: 1px !important;
   }
   .headerbar input {
-    display: none;
+    width: 160% !important;
   }
   .headerFormButton {
     margin-right: 2px !important;
@@ -70,7 +67,7 @@
   }
   .headerLogo {
     margin: 0% !important;
-    margin-left: 10px !important;
+    margin-left: 0px !important;
     padding-top: 0px;
     padding-bottom: 0px;
   }
@@ -82,11 +79,13 @@
     margin-left: 1px !important;
     margin-right: 0px !important;
   }
-  .searchIconHeader {
-    display: flex;
-    margin-top: 10px;
+  .searchBarHeader{
+    margin-left: 0% !important;
   }
-  .searchBarHeader {
+  .ProductsHeader {
+    display: none;
+  }
+  .AboutHeader {
     display: none;
   }
   .lefSideBarTogglerBtn {

@@ -74,4 +74,10 @@
     margin-top: 20%;
     margin-bottom: 0%;
   }
+  .loginLink {
+    width: 250%;
+    margin-top: 5%;
+    margin-left: 55%;
+    padding-bottom: 23%;
+  }
 }

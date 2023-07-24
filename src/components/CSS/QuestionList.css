@@ -15,3 +15,15 @@
 .askedOnuserPosted {
   width: 24% !important;
 }
+
+@media (max-width: 600px) {
+  .askedOnuserPosted{
+    margin-left: 70%;
+    margin-right: 30%;
+    margin-top: 0% !important;
+  }
+  .askedOnuserPosted p{
+    margin-left: 0%;
+    width: 150%;
+  }
+}

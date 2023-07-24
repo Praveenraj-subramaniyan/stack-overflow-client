@@ -7,17 +7,17 @@ function QuestionList({ questionsList }) {
   return (
     <div>
       {questionsList.map((question) => (
-        <div className="QuestionDiv" key={question._id}>
+        <div className="QuestionDiv " key={question._id}>
           <div className="row ms-1 text-secondary mt-2">
-            <div className="col-1">
+            <div className="col-2 col-sm-1">
               <p className="text-center">{question.upVote.length - question.downVote.length}</p>
               <p>votes</p>
             </div>
-            <div className="col-1">
+            <div className="col-2 col-sm-1">
               <p className="text-center">{question.noOfAnswers}</p>
               <p>answers</p>
             </div>
-            <div className="col-7 ms-2 pe-0">
+            <div className="col-7 col-sm-7 ms-2 pe-0">
               <Link
                 to={`/question/details/${question._id}`}
                 className="text-decoration-none "
