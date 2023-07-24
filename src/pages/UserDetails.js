@@ -45,7 +45,6 @@ function UserDetails() {
 
   async function HandleUdateProfileSubmit(event) {
     event.preventDefault();
-    // setIsLoading(true);
     const reponse = await dispatch(UpdateProfile(editProfile));
     if(reponse === true){
       const cookieValue = Cookies.get("Profile");
