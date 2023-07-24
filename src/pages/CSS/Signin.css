@@ -53,3 +53,25 @@
     margin-bottom: 0%;
   }
 }
+
+@media  (max-width: 600px) {
+  .SigninBoxDiv {
+    width: 50%;
+    margin: 30%;
+    margin-top: 3%;
+    margin-bottom: 0%;
+  }
+  .paraSignin{
+    display: none;
+  }
+  .signinForm {
+    border-radius: 4%;
+    width: 350%;
+    margin-left: 15%;
+  }
+  .signinLogo {
+    margin: 150%;
+    margin-top: 20%;
+    margin-bottom: 0%;
+  }
+}
