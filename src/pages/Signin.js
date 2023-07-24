@@ -27,7 +27,6 @@ function Signin() {
     HandleSignUpResponse(await SignUPAPI(signupData));
   }
   function HandleSignUpResponse(response) {
-    console.log(response);
     if (response === true) {
       alert("Registration link sent to your mail id");
       navigate("/login");

@@ -1,6 +1,6 @@
 import axios from "axios";
 import Cookies from "js-cookie";
-const API = axios.create({ baseURL: "http://localhost:3000/" });
+const API = axios.create({ baseURL: "https://stack-overflow-clone-j3nr.onrender.com/" });
 const cookieValue = Cookies.get("Profile");
 const authToken = cookieValue ? JSON.parse(cookieValue) : null;
 
@@ -17,7 +17,6 @@ export const LoginAPI = async (loginData) => {
 export const SignUPAPI = async (loginData) => {
   try {
     const response = await API.post("/signin/verify", loginData);
-    console.log("SignUPAPI",response.data)
     return response.data;
   } catch (error) {
     console.error(error);
