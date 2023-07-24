@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import "./CSS/Header.css";
 import logo from "../images/logo.png";
-import searchIcon from "../images/search-solid.svg";
 import { Link, useNavigate } from "react-router-dom";
 import Avatar from "./Avatar";
 import { useDispatch, useSelector } from "react-redux";
@@ -26,9 +25,10 @@ function Header() {
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#leftsideHomeNavBar"
-          className="navbar-toggler ms-2 leftsideHomeNavBarbtn"
+          className="navbar-toggler ms-2 leftsideHomeNavBarbtn "
         >
-          <span class="navbar-toggler-icon"></span>
+          <div className="d-flex justify-content-center"><span className="navbar-toggler-icon"></span></div>
+          
         </button>
           <ul className="navbar-nav">
             <Link

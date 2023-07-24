@@ -14,6 +14,7 @@
   padding-bottom: 10px;
   padding-top: 0px;
 }
+
 @media (min-width: 600px) and (max-width: 830px) {
   .form-control {
     width: 90% !important;
@@ -27,6 +28,7 @@
     margin: 0% !important;
     font-size: small;
   }
+
 }
 @media (max-width: 600px) {
   .headerbar {
@@ -39,7 +41,6 @@
     flex-direction: row;
   }
   .headerbar li a {
-    /* width: 8px !important; */
     margin-left: 0px !important;
     margin-left: 0px !important;
   }
@@ -96,19 +97,8 @@
     margin-left: 0px !important;
     display: flex;
   }
-  #headerLogoli button {
-    width: 17px !important;
-    padding: 0%;
-    height: 18px;
-    margin-top: 8%;
-    margin-left: 5px;
-    margin-right: 5px;
-  }
-  #headerLogoli span {
-    width: 10px !important;
-    padding: 0%;
-    height: 15px;
-    margin-top: 0% !important;
-    margin-bottom: 60% !important;
-  }
+.leftsideHomeNavBarbtn{
+  width: 10%;
+  height: 40px;
+}
 }
