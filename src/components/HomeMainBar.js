@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation, Link } from "react-router-dom";
 import "./CSS/HomeMainBar.css";
 import QuestionList from "../components/QuestionList";
-import {  useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 function HomeMainBar() {
   const questionsList = useSelector((state) => state.questionsReducer.data);
@@ -21,10 +21,10 @@ function HomeMainBar() {
         </Link>
       </div>
       <div className="mt-4">
-          <div>
-            <p className="ms-3">{questionsList.length} questions</p>
-            <QuestionList questionsList={questionsList} />
-          </div>
+        <div>
+          <p className="ms-3">{questionsList.length} questions</p>
+          <QuestionList questionsList={questionsList} />
+        </div>
       </div>
     </div>
   );

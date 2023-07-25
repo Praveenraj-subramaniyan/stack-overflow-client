@@ -19,3 +19,15 @@
     margin-left: 10px;
   }
 }
+@media (min-width: 600px) and (max-width: 830px) {
+  .mainrightbarHome {
+    margin-right: 0% !important;
+    padding-right: 0% !important;
+    width: 81% !important;
+  }
+  .leftsidebarHome {
+    padding: 0%;
+    width: 19%;
+    background-color: white;
+  }
+}

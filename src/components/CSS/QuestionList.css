@@ -17,14 +17,22 @@
 }
 
 @media (max-width: 600px) {
-  .askedOnuserPosted{
+  .askedOnuserPosted {
     margin-left: 70%;
     margin-right: 30%;
     margin-top: 0% !important;
     height: 40px;
   }
-  .askedOnuserPosted p{
+  .askedOnuserPosted p {
     margin-left: 0%;
     width: 150%;
+  }
+  .displaytagsDiv {
+    margin-left: 10% !important;
+  }
+}
+@media (min-width: 600px) and (max-width: 830px) {
+  .displaytagsDiv {
+    margin-left: 10% !important;
   }
 }

@@ -73,17 +73,15 @@ function QuestionDetails() {
     }
   };
 
-  const  handleUpVote = async () => {
+  const handleUpVote = async () => {
     if (currentUser?.status) {
-      let reponse =  await dispatch(voteQuestion(id, "upVote"));
-      if(reponse === true){
+      let reponse = await dispatch(voteQuestion(id, "upVote"));
+      if (reponse === true) {
         //window.location.reload()
-      }
-      else if(reponse === "Invalid"){
-        alert("Invalid request")
-      }
-      else if(reponse === "Server Busy"){
-        alert("Server Busy! try again")
+      } else if (reponse === "Invalid") {
+        alert("Invalid request");
+      } else if (reponse === "Server Busy") {
+        alert("Server Busy! try again");
       }
     } else {
       alert("Login or Signup to up vote a question");
@@ -93,16 +91,14 @@ function QuestionDetails() {
 
   const handleDownVote = async () => {
     if (currentUser?.status) {
-     let reponse = await dispatch(voteQuestion(id, "downVote"));
-     if(reponse === true){
-      //window.location.reload()
-     }
-     else if(reponse === "Invalid"){
-       alert("Invalid request")
-     }
-     else if(reponse === "Server Busy"){
-       alert("Server Busy! try again")
-     }
+      let reponse = await dispatch(voteQuestion(id, "downVote"));
+      if (reponse === true) {
+        //window.location.reload()
+      } else if (reponse === "Invalid") {
+        alert("Invalid request");
+      } else if (reponse === "Server Busy") {
+        alert("Server Busy! try again");
+      }
     } else {
       alert("Login or Signup to down vote a question");
       navigate("/Login");
@@ -199,18 +195,19 @@ function QuestionDetails() {
                   <div key={answers._id}>
                     <p className="mt-4">{answers.answerBody}</p>
                     {currentUser?.email === answers?.userEmail && (
-                    <button
-                      type="button"
-                      className="btn btn-link p-0 text-decoration-none text-secondary"
-                      onClick={() =>
-                        handleAnswerDelete(
-                          answers._id,
-                          questionsList[0].noOfAnswers
-                        )
-                      }
-                    >
-                      delete
-                    </button>)}
+                      <button
+                        type="button"
+                        className="btn btn-link p-0 text-decoration-none text-secondary"
+                        onClick={() =>
+                          handleAnswerDelete(
+                            answers._id,
+                            questionsList[0].noOfAnswers
+                          )
+                        }
+                      >
+                        delete
+                      </button>
+                    )}
                     <div className="askedOnmoment me-0 row">
                       <p className="col-12 pe-0">
                         asked {moment(answers.answeredOn).fromNow()}

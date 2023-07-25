@@ -28,7 +28,9 @@
     margin: 0% !important;
     font-size: small;
   }
-
+  .logavatar {
+    margin-right: 13px !important;
+  }
 }
 @media (max-width: 600px) {
   .headerbar {
@@ -80,7 +82,7 @@
     margin-left: 1px !important;
     margin-right: 0px !important;
   }
-  .searchBarHeader{
+  .searchBarHeader {
     margin-left: 0% !important;
   }
   .ProductsHeader {
@@ -97,8 +99,8 @@
     margin-left: 0px !important;
     display: flex;
   }
-.leftsideHomeNavBarbtn{
-  width: 10%;
-  height: 40px;
-}
+  .leftsideHomeNavBarbtn {
+    width: 10%;
+    height: 40px;
+  }
 }

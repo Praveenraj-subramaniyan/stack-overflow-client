@@ -29,7 +29,10 @@ function Tags() {
             </p>
             <div className="row ms-1">
               {tagsList.map((tag, index) => (
-                <div className="col-12 col-sm-3 TagsDivtags p-3 me-5 mb-3" key={index}>
+                <div
+                  className="col-12 col-sm-3 col-md-5 TagsDivtags p-3 me-5 mb-3"
+                  key={index}
+                >
                   <p className="displaytagsTags px-2 py-1">{tag.tagName}</p>
                   <p>{tag.tagDesc}</p>
                 </div>

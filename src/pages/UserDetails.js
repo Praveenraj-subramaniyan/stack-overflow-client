@@ -35,18 +35,18 @@ function UserDetails() {
       [name]: value,
     }));
   }
-  function OnEdit(){
+  function OnEdit() {
     seteditProfile({
       name: currentProfile[0].name,
-      about:currentProfile[0].about,
+      about: currentProfile[0].about,
       tags: currentProfile[0].tags.join(" "),
-    })
+    });
   }
 
   async function HandleUdateProfileSubmit(event) {
     event.preventDefault();
     const reponse = await dispatch(UpdateProfile(editProfile));
-    if(reponse === true){
+    if (reponse === true) {
       const cookieValue = Cookies.get("Profile");
       const Profile = cookieValue ? JSON.parse(cookieValue) : null;
       Profile.name = editProfile.name;
@@ -59,12 +59,10 @@ function UserDetails() {
         secure: true,
       });
       dispatch(currentUserActions());
-      window.location.reload()
+      window.location.reload();
+    } else {
+      alert("Server busy");
     }
-    else{
-      alert("Server busy")
-    }
-     
   }
   if (!currentProfile) {
     return <div className="spinner-border mt-5  isLoading"></div>;
@@ -76,16 +74,17 @@ function UserDetails() {
       </div>
       <div className="mainrightbarHome col-12">
         <div className="ms-2 mt-3">
-        {currentUser?.id === id && (
-          <button
-            className="btn btn-primary mt-3  EditProfilebtn"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#EditProfile"
-            onClick={OnEdit}
-          >
-            Edit Profile
-          </button>)}
+          {currentUser?.id === id && (
+            <button
+              className="btn btn-primary mt-3  EditProfilebtn"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#EditProfile"
+              onClick={OnEdit}
+            >
+              Edit Profile
+            </button>
+          )}
           <div className="row ms-1 mb-5">
             {currentProfile.map((user, index) => (
               <div className="col-12 row p-3 me-2 mb-3 " key={index}>
@@ -125,8 +124,8 @@ function UserDetails() {
                 {user?.tags.length !== 0 ? (
                   <div className="mt-3 ">
                     <h4>Tags watched</h4>
-                   
-                      <p className="ms-2">{user?.tags.join(" ")}</p>
+
+                    <p className="ms-2">{user?.tags.join(" ")}</p>
                   </div>
                 ) : (
                   <div className="mt-3 text-secondary">
@@ -171,7 +170,11 @@ function UserDetails() {
               name="tags"
             />
             <br />
-            <button className="btn btn-primary mt-3" type="submit" data-bs-dismiss="offcanvas">
+            <button
+              className="btn btn-primary mt-3"
+              type="submit"
+              data-bs-dismiss="offcanvas"
+            >
               Update Profile
             </button>
           </form>

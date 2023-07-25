@@ -25,7 +25,10 @@ function Users() {
           <h3>Users</h3>
           <div className="row ms-1 mb-5">
             {userList.map((user, index) => (
-              <div className="col-12 col-sm-3 row p-3 me-2 mb-3" key={index}>
+              <div
+                className="col-12 col-sm-3 col-md-6 row p-3 me-2 mb-3"
+                key={index}
+              >
                 <div className="col-3">
                   <Link
                     to={`/user/${user?._id}`}
