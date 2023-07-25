@@ -69,7 +69,7 @@ function Header() {
               </button>
             </Link>
           </form>
-        ) : (
+        ) : ( 
           <form className="d-flex me-5 headerFormButton">
             <Link
               to={`/user/details/${currentUser?.id}`}
