@@ -58,6 +58,7 @@ function AskQuestion() {
             value={newQuestion.questionTitle}
             placeholder="e.g. Is there an R function for finding the index of an element in a vector?"
             onChange={HandleData}
+            required
           />
           <br />
           <br />
@@ -74,6 +75,7 @@ function AskQuestion() {
             rows={10}
             cols={148}
             onChange={HandleData}
+            required
           />
           <br />
           <br />
@@ -88,6 +90,7 @@ function AskQuestion() {
             value={newQuestion.questionTags}
             placeholder="e.g. (xml typescript wordpress)"
             onChange={HandleData}
+            required
           />
         </div>
         <button type="submit" className="btn btn-primary my-5 ms-3">
