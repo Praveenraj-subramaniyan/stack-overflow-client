@@ -47,7 +47,7 @@ function Header() {
           </li>
           <li className="nav-item headernavLink ProductsHeader">
             <a className="nav-link me-3" href="#">
-              Products
+              Product
             </a>
           </li>
           <li className="nav-item searchBarHeader">
