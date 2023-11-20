@@ -78,7 +78,7 @@ function QuestionDetails() {
     if (currentUser?.status) {
       let reponse = await dispatch(voteQuestion(id, "upVote"));
       if (reponse === true) {
-        //window.location.reload()
+        //window.location.reload() 
       } else if (reponse === "Invalid") {
         alert("Invalid request");
       } else if (reponse === "Server Busy") {
