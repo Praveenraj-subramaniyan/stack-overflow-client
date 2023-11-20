@@ -19,7 +19,8 @@ function QuestionDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const questionsList = useSelector((state) => state.questionsReducer.data);
+  const questionsList1 = useSelector((state) => state.questionsReducer.data);
+  const questionsList = questionsList1.filter((question) => question._id === id)
   let currentUser = useSelector((state) => state.currentUserReducer);
   const [Answer, setAnswer] = useState("");
   async function handlePostAnswer(e, answerLength) {
